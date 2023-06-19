@@ -14,7 +14,7 @@
     --bg-color:#000001;
     --second-bg-color:#1e2021e2;
     --text-color:#ededed;
-    --main-color:#cc0d6a;
+    --main-color:#fa235b;
 }
 html{
     font-size: 62.5%;
@@ -54,8 +54,8 @@ body{
     font-size: 1.7rem;
     color:var(--text-color);
     font-weight: 500;
-    margin: 3.5rem;
-    transition: .3s;
+    margin-left: 3.5rem;
+    transition: .3s; /* for giving color after hover*/
 }
 .navbar a:hover, .navbar a.active{
     color:var(--main-color);
@@ -78,6 +78,7 @@ section{
     padding: 0 9%;
     background: url(./images/home_image.png) no-repeat;
     background-size: cover;
+    background-attachment: fixed;
     background-position: center;
 }
 .home-content{
@@ -86,6 +87,8 @@ section{
     z-index: 99;
 }
 .home-content h1{
+    position: relative;
+    display: inline-block;
     font-size:5.6rem;
     font-weight: 700;
     line-height: 1.3;
@@ -107,7 +110,7 @@ section{
     background-image: linear-gradient(var(--main-color),var(--main-color));
     background-repeat: no-repeat;
     -webkit-background-clip: text;
-    background-position: -33rem 0;
+    /* background-position: -33rem 0; */
     animation: homeBgText 6s linear infinite;
     /* animation-delay: 2s; */
 }
@@ -125,6 +128,7 @@ section{
     /* animation-delay: 2s; */
 }
 .home-content p{
+    position: relative;
     font-size: 1.6rem;
     margin: 2rem 0 4rem;
     
@@ -244,6 +248,7 @@ section{
     padding-bottom: 6rem;
 }
 .heading{
+    position: relative;
     font-size: 5rem;
     margin-bottom: 3rem;
     text-align: center;
@@ -573,17 +578,26 @@ span{
     width: 100%;
     height: 100%;
     z-index: 98;
-    background: blue;
+    background: var(--bg-color);
 
 }
-
+.animate.homeimg{
+    width: 50%;
+}
 .logo .animate,
 .navbar .animate,
-#menu-icon .animate{
+#menu-icon .animate,
+.home.show-animate .animate{
     animation: showRights 1s ease forwards;
     animation-delay: calc(.3s * var(--i));
 }
+.animate.scroll{
+    transition: 1s ease;
+    transition-delay: calc(.3s * var(--i));
+}
+.about.show-animate .animate.scroll{
 
+}
 /* apply breakpoints */
 @media (max-width :1200px){
     html{
@@ -634,7 +648,7 @@ span{
         top: 0;
         height: 100%;
         width: 100%;
-        background:var(--second-bg-color);
+        background:white;
         border-top: .1rem solid rgba(0,0,0,.2);
         z-index: -1;
         transition: .25s;
